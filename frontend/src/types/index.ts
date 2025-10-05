@@ -15,11 +15,30 @@ export interface RegisterCredentials {
   password: string;
 }
 
+export interface ChangePasswordCredentials {
+  currentPassword: string;
+  newPassword: string;
+}
+
+export interface ForgotPasswordCredentials {
+  email: string;
+}
+
+export interface ResetPasswordCredentials {
+  password: string;
+}
+
 export interface AuthResponse {
   _id: string;
   name: string;
   email: string;
   token: string;
+  message?: string;
+}
+
+export interface ForgotPasswordResponse {
+  message: string;
+  resetToken?: string; // For demo purposes only
 }
 
 export interface Book {

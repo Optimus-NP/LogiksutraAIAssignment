@@ -8,10 +8,10 @@ const HomePage: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto text-center">
       <div className="mb-12">
-        <h1 className="text-5xl font-bold text-gray-900 mb-4">
-          Welcome to <span className="text-primary-600">BookReviews</span>
+        <h1 className="text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          Welcome to <span className="text-primary-600 dark:text-primary-400">BookReviews</span>
         </h1>
-        <p className="text-xl text-gray-600 mb-8">
+        <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
           Discover, review, and share your favorite books with the community
         </p>
       </div>
@@ -20,8 +20,8 @@ const HomePage: React.FC = () => {
         <div className="card">
           <div className="card-body text-center">
             <div className="text-4xl mb-4">📚</div>
-            <h3 className="text-lg font-semibold mb-2">Discover Books</h3>
-            <p className="text-gray-600">
+            <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Discover Books</h3>
+            <p className="text-gray-600 dark:text-gray-300">
               Browse through our collection of books and find your next great read
             </p>
           </div>
@@ -30,8 +30,8 @@ const HomePage: React.FC = () => {
         <div className="card">
           <div className="card-body text-center">
             <div className="text-4xl mb-4">⭐</div>
-            <h3 className="text-lg font-semibold mb-2">Write Reviews</h3>
-            <p className="text-gray-600">
+            <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Write Reviews</h3>
+            <p className="text-gray-600 dark:text-gray-300">
               Share your thoughts and help others discover amazing books
             </p>
           </div>
@@ -40,8 +40,8 @@ const HomePage: React.FC = () => {
         <div className="card">
           <div className="card-body text-center">
             <div className="text-4xl mb-4">👥</div>
-            <h3 className="text-lg font-semibold mb-2">Join Community</h3>
-            <p className="text-gray-600">
+            <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Join Community</h3>
+            <p className="text-gray-600 dark:text-gray-300">
               Connect with fellow book lovers and discuss your favorite reads
             </p>
           </div>

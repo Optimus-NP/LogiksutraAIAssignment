@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
   const { state, logout } = useAuth();
@@ -12,7 +13,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white shadow-lg border-b border-gray-200">
+    <nav className="bg-white dark:bg-gray-800 shadow-lg border-b border-gray-200 dark:border-gray-700">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -24,7 +25,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center space-x-4">
             <Link 
               to="/books" 
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               Books
             </Link>
@@ -33,13 +34,20 @@ const Navbar: React.FC = () => {
               <>
                 <Link 
                   to="/add-book" 
-                  className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   Add Book
                 </Link>
-                <span className="text-gray-500 text-sm">
+                <Link 
+                  to="/change-password" 
+                  className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Change Password
+                </Link>
+                <span className="text-gray-500 dark:text-gray-400 text-sm">
                   Welcome, {state.user?.name}
                 </span>
+                <ThemeToggle />
                 <button
                   onClick={handleLogout}
                   className="btn-secondary text-sm"
@@ -49,9 +57,10 @@ const Navbar: React.FC = () => {
               </>
             ) : (
               <>
+                <ThemeToggle />
                 <Link 
                   to="/login" 
-                  className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   Login
                 </Link>

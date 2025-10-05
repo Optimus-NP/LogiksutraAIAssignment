@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -9,13 +10,16 @@ import BookListPage from './pages/BookListPage';
 import BookDetailsPage from './pages/BookDetailsPage';
 import AddBookPage from './pages/AddBookPage';
 import EditBookPage from './pages/EditBookPage';
+import ChangePasswordPage from './pages/ChangePasswordPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 import ProtectedRoute from './components/ProtectedRoute';
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const { state } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Navbar />
       <main className="container mx-auto px-4 py-8">
         <Routes>
@@ -29,6 +33,14 @@ const App: React.FC = () => {
           <Route 
             path="/register" 
             element={state.isAuthenticated ? <Navigate to="/books" /> : <RegisterPage />} 
+          />
+          <Route 
+            path="/forgot-password" 
+            element={state.isAuthenticated ? <Navigate to="/books" /> : <ForgotPasswordPage />} 
+          />
+          <Route 
+            path="/reset-password/:token" 
+            element={state.isAuthenticated ? <Navigate to="/books" /> : <ResetPasswordPage />} 
           />
           <Route
             path="/add-book"
@@ -46,10 +58,26 @@ const App: React.FC = () => {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/change-password"
+            element={
+              <ProtectedRoute>
+                <ChangePasswordPage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 };
 
